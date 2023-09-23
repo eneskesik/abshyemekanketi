@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ankara Bilkent Şehir Hastanesi Yemek Değerlendirme Anketi</title>
+    <style>
+        body {
+            background-color: pink; /* Arka plan rengi pembe (pink) olarak ayarlandı. */
+        }
+    </style>
+</head>
+<body>
+    <h1>Ankara Bilkent Şehir Hastanesi Yemek Değerlendirme Anketi</h1>
+  
+     <form action="anket_sonucu.php" method="post" id="anket_formu">
+        <label for="tarih">Tarih:</label>
+        <input type="date" id="tarih" name="tarih" required><br><br>
+
+        <label for="ogun">Öğün:</label>
+        <select id="ogun" name="ogun" required>
+            <option value="Sabah Kahvaltı">Sabah Kahvaltı</option>
+            <option value="Öğle">Öğle</option>
+            <option value="Akşam Yemeği">Akşam Yemeği</option>
+        </select><br><br>
+
+       <div class="yemek-turu">
+    <h2>Çorba</h2>
+    <label for="kalite_corba">Kalite:</label>
+    <span class="rating">
+        <input type="radio" id="kalite_corba_1" name="kalite_corba" value="1" required>
+        <label for="kalite_corba_1">1</label>
+        <input type="radio" id="kalite_corba_2" name="kalite_corba" value="2">
+        <label for="kalite_corba_2">2</label>
+        <input type="radio" id="kalite_corba_3" name="kalite_corba" value="3">
+        <label for="kalite_corba_3">3</label>
+        <input type="radio" id="kalite_corba_4" name="kalite_corba" value="4">
+        <label for="kalite_corba_4">4</label>
+        <input type="radio" id="kalite_corba_5" name="kalite_corba" value="5">
+        <label for="kalite_corba_5">5</label>
+    </span><br><br>
+    
+    <label for="lezzet_corba">Lezzet:</label>
+    <span class="rating">
+        <input type="radio" id="lezzet_corba_1" name="lezzet_corba" value="1" required>
+        <label for="lezzet_corba_1">1</label>
+        <input type="radio" id="lezzet_corba_2" name="lezzet_corba" value="2">
+        <label for="lezzet_corba_2">2</label>
+        <input type="radio" id="lezzet_corba_3" name="lezzet_corba" value="3">
+        <label for="lezzet_corba_3">3</label>
+        <input type="radio" id="lezzet_corba_4" name="lezzet_corba" value="4">
+        <label for="lezzet_corba_4">4</label>
+        <input type="radio" id="lezzet_corba_5" name="lezzet_corba" value="5">
+        <label for="lezzet_corba_5">5</label>
+    </span><br><br>
+
+    <label for="sunum_corba">Sunum:</label>
+    <span class="rating">
+        <input type="radio" id="sunum_corba_1" name="sunum_corba" value="1" required>
+        <label for="sunum_corba_1">1</label>
+        <input type="radio" id="sunum_corba_2" name="sunum_corba" value="2">
+        <label for="sunum_corba_2">2</label>
+        <input type="radio" id="sunum_corba_3" name="sunum_corba" value="3">
+        <label for="sunum_corba_3">3</label>
+        <input type="radio" id="sunum_corba_4" name="sunum_corba" value="4">
+        <label for="sunum_corba_4">4</label>
+        <input type="radio" id="sunum_corba_5" name="sunum_corba" value="5">
+        <label for="sunum_corba_5">5</label>
+    </span><br><br>
+</div>
+
+<div class="yemek-turu">
+    <h2>Ana Yemek</h2>
+    <label for="kalite_ana_yemek">Kalite:</label>
+    <span class="rating">
+        <input type="radio" id="kalite_ana_yemek_1" name="kalite_ana_yemek" value="1" required>
+        <label for="kalite_ana_yemek_1">1</label>
+        <input type="radio" id="kalite_ana_yemek_2" name="kalite_ana_yemek" value="2">
+        <label for="kalite_ana_yemek_2">2</label>
+        <input type="radio" id="kalite_ana_yemek_3" name="kalite_ana_yemek" value="3">
+        <label for="kalite_ana_yemek_3">3</label>
+        <input type="radio" id="kalite_ana_yemek_4" name="kalite_ana_yemek" value="4">
+        <label for="kalite_ana_yemek_4">4</label>
+        <input type="radio" id="kalite_ana_yemek_5" name="kalite_ana_yemek" value="5">
+        <label for="kalite_ana_yemek_5">5</label>
+    </span><br><br>
+    
+    <label for="lezzet_ana_yemek">Lezzet:</label>
+    <span class="rating">
+        <input type="radio" id="lezzet_ana_yemek_1" name="lezzet_ana_yemek" value="1" required>
+        <label for="lezzet_ana_yemek_1">1</label>
+        <input type="radio" id="lezzet_ana_yemek_2" name="lezzet_ana_yemek" value="2">
+        <label for="lezzet_ana_yemek_2">2</label>
+        <input type="radio" id="lezzet_ana_yemek_3" name="lezzet_ana_yemek" value="3">
+        <label for="lezzet_ana_yemek_3">3</label>
+        <input type="radio" id="lezzet_ana_yemek_4" name="lezzet_ana_yemek" value="4">
+        <label for="lezzet_ana_yemek_4">4</label>
+        <input type="radio" id="lezzet_ana_yemek_5" name="lezzet_ana_yemek" value="5">
+        <label for="lezzet_ana_yemek_5">5</label>
+    </span><br><br>
+
+    <label for="sunum_ana_yemek">Sunum:</label>
+    <span class="rating">
+        <input type="radio" id="sunum_ana_yemek_1" name="sunum_ana_yemek" value="1" required>
+        <label for="sunum_ana_yemek_1">1</label>
+        <input type="radio" id="sunum_ana_yemek_2" name="sunum_ana_yemek" value="2">
+        <label for="sunum_ana_yemek_2">2</label>
+        <input type="radio" id="sunum_ana_yemek_3" name="sunum_ana_yemek" value="3">
+        <label for="sunum_ana_yemek_3">3</label>
+        <input type="radio" id="sunum_ana_yemek_4" name="sunum_ana_yemek" value="4">
+        <label for="sunum_ana_yemek_4">4</label>
+        <input type="radio" id="sunum_ana_yemek_5" name="sunum_ana_yemek" value="5">
+        <label for="sunum_ana_yemek_5">5</label>
+    </span><br><br>
+</div>
+
+<div class="yemek-turu">
+    <h2>Salata/Yoğurt/Ayran</h2>
+    <label for="kalite_salata">Kalite:</label>
+    <span class="rating">
+        <input type="radio" id="kalite_salata_1" name="kalite_salata" value="1" required>
+        <label for="kalite_salata_1">1</label>
+        <input type="radio" id="kalite_salata_2" name="kalite_salata" value="2">
+        <label for="kalite_salata_2">2</label>
+        <input type="radio" id="kalite_salata_3" name="kalite_salata" value="3">
+        <label for="kalite_salata_3">3</label>
+        <input type="radio" id="kalite_salata_4" name="kalite_salata" value="4">
+        <label for="kalite_salata_4">4</label>
+        <input type="radio" id="kalite_salata_5" name="kalite_salata" value="5">
+        <label for="kalite_salata_5">5</label>
+    </span><br><br>
+    
+    <label for="lezzet_salata">Lezzet:</label>
+    <span class="rating">
+        <input type="radio" id="lezzet_salata_1" name="lezzet_salata" value="1" required>
+        <label for="lezzet_salata_1">1</label>
+        <input type="radio" id="lezzet_salata_2" name="lezzet_salata" value="2">
+        <label for="lezzet_salata_2">2</label>
+        <input type="radio" id="lezzet_salata_3" name="lezzet_salata" value="3">
+        <label for="lezzet_salata_3">3</label>
+        <input type="radio" id="lezzet_salata_4" name="lezzet_salata" value="4">
+        <label for="lezzet_salata_4">4</label>
+        <input type="radio" id="lezzet_salata_5" name="lezzet_salata" value="5">
+        <label for="lezzet_salata_5">5</label>
+    </span><br><br>
+
+    <label for="sunum_salata">Sunum:</label>
+    <span class="rating">
+        <input type="radio" id="sunum_salata_1" name="sunum_salata" value="1" required>
+        <label for="sunum_salata_1">1</label>
+        <input type="radio" id="sunum_salata_2" name="sunum_salata" value="2">
+        <label for="sunum_salata_2">2</label>
+        <input type="radio" id="sunum_salata_3" name="sunum_salata" value="3">
+        <label for="sunum_salata_3">3</label>
+        <input type="radio" id="sunum_salata_4" name="sunum_salata" value="4">
+        <label for="sunum_salata_4">4</label>
+        <input type="radio" id="sunum_salata_5" name="sunum_salata" value="5">
+        <label for="sunum_salata_5">5</label>
+    </span><br><br>
+</div>
+
+<div class="yemek-turu">
+    <h2>Tatlı/Meyve</h2>
+    <label for="kalite_tatli_meyve">Kalite:</label>
+    <span class="rating">
+        <input type="radio" id="kalite_tatli_meyve_1" name="kalite_tatli_meyve" value="1" required>
+        <label for="kalite_tatli_meyve_1">1</label>
+        <input type="radio" id="kalite_tatli_meyve_2" name="kalite_tatli_meyve" value="2">
+        <label for="kalite_tatli_meyve_2">2</label>
+        <input type="radio" id="kalite_tatli_meyve_3" name="kalite_tatli_meyve" value="3">
+        <label for="kalite_tatli_meyve_3">3</label>
+        <input type="radio" id="kalite_tatli_meyve_4" name="kalite_tatli_meyve" value="4">
+        <label for="kalite_tatli_meyve_4">4</label>
+        <input type="radio" id="kalite_tatli_meyve_5" name="kalite_tatli_meyve" value="5">
+        <label for="kalite_tatli_meyve_5">5</label>
+    </span><br><br>
+    
+    <label for="lezzet_tatli_meyve">Lezzet:</label>
+    <span class="rating">
+        <input type="radio" id="lezzet_tatli_meyve_1" name="lezzet_tatli_meyve" value="1" required>
+        <label for="lezzet_tatli_meyve_1">1</label>
+        <input type="radio" id="lezzet_tatli_meyve_2" name="lezzet_tatli_meyve" value="2">
+        <label for="lezzet_tatli_meyve_2">2</label>
+        <input type="radio" id="lezzet_tatli_meyve_3" name="lezzet_tatli_meyve" value="3">
+        <label for="lezzet_tatli_meyve_3">3</label>
+        <input type="radio" id="lezzet_tatli_meyve_4" name="lezzet_tatli_meyve" value="4">
+        <label for="lezzet_tatli_meyve_4">4</label>
+        <input type="radio" id="lezzet_tatli_meyve_5" name="lezzet_tatli_meyve" value="5">
+        <label for="lezzet_tatli_meyve_5">5</label>
+    </span><br><br>
+
+    <label for="sunum_tatli_meyve">Sunum:</label>
+    <span class="rating">
+        <input type="radio" id="sunum_tatli_meyve_1" name="sunum_tatli_meyve" value="1" required>
+        <label for="sunum_tatli_meyve_1">1</label>
+        <input type="radio" id="sunum_tatli_meyve_2" name="sunum_tatli_meyve" value="2">
+        <label for="sunum_tatli_meyve_2">2</label>
+        <input type="radio" id="sunum_tatli_meyve_3" name="sunum_tatli_meyve" value="3">
+        <label for="sunum_tatli_meyve_3">3</label>
+        <input type="radio" id="sunum_tatli_meyve_4" name="sunum_tatli_meyve" value="4">
+        <label for="sunum_tatli_meyve_4">4</label>
+        <input type="radio" id="sunum_tatli_meyve_5" name="sunum_tatli_meyve" value="5">
+        <label for="sunum_tatli_meyve_5">5</label>
+    </span><br><br>
+</div>
+
+
+        <input type="submit" value="Anketi Gönder">
+    </form>
+    
+</body>
+</html>
+
