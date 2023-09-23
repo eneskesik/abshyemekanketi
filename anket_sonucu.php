@@ -1,5 +1,7 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $ad_soyad = $_POST["ad_soyad"];
+    $email = $_POST["email"];
     $tarih = $_POST["tarih"];
     $ogun = $_POST["ogun"];
     $corba = $_POST["corba"];
@@ -11,8 +13,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Örneğin, e-posta gönderme işlemi için PHP'nin mail() fonksiyonunu kullanabilirsiniz.
     $alici_email = "eneskesik@gmail.com"; // E-postayı alacak kişinin e-posta adresi
-    $gonderen_ad = "Anket Katılımcısı";
-    $gonderen_email = "anket@ornek.com";
+    $gonderen_ad = $ad_soyad;
+    $gonderen_email = $email;
     $mesaj = "Tarih: $tarih\n";
     $mesaj .= "Öğün: $ogun\n";
     $mesaj .= "Çorba Puanı: $corba\n";
