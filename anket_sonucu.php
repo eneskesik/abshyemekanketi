@@ -1,34 +1,42 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $ad_soyad = $_POST["ad_soyad"];
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    // Form verilerini al
+    $adSoyad = $_POST["ad_soyad"];
     $email = $_POST["email"];
     $tarih = $_POST["tarih"];
     $ogun = $_POST["ogun"];
-    $corba = $_POST["corba"];
-    $ana_yemek = $_POST["ana_yemek"];
-    $salata = $_POST["salata"];
-    $tatli_meyve = $_POST["tatli_meyve"];
+    $corbaDegerlendirme = $_POST["corba"];
+    $anaYemekDegerlendirme = $_POST["ana_yemek"];
+    $salataDegerlendirme = $_POST["salata"];
+    $tatliMeyveDegerlendirme = $_POST["tatli_meyve"];
 
-    // Verileri işleme ve e-posta gönderme kodunu burada ekleyebilirsiniz
+    // Verileri bir veritabanına veya başka bir depolama yöntemine kaydetmek için bu noktada kod ekleyebilirsiniz.
+    // Örneğin, MySQL veritabanına veri eklemek için aşağıdaki gibi bir kod kullanabilirsiniz:
 
-    // Örneğin, e-posta gönderme işlemi için PHP'nin mail() fonksiyonunu kullanabilirsiniz.
-    $alici_email = "eneskesik@gmail.com"; // E-postayı alacak kişinin e-posta adresi
-    $gonderen_ad = $ad_soyad;
-    $gonderen_email = $email;
-    $mesaj = "Tarih: $tarih\n";
-    $mesaj .= "Öğün: $ogun\n";
-    $mesaj .= "Çorba Puanı: $corba\n";
-    $mesaj .= "Ana Yemek Puanı: $ana_yemek\n";
-    $mesaj .= "Salata/Yoğurt/Ayran Puanı: $salata\n";
-    $mesaj .= "Tatlı/Meyve Puanı: $tatli_meyve\n";
+    // Veritabanı bağlantısını oluşturun
+    $servername = "localhost";
+    $username = "kullanici_adi";
+    $password = "parola";
+    $dbname = "veritabani_adi";
 
-    $baslik = "Anket Cevabı";
-    $gonderildi = mail($alici_email, $baslik, $mesaj, "From: $gonderen_ad <$gonderen_email>");
+    $conn = new mysqli($servername, $username, $password, $dbname);
 
-    if ($gonderildi) {
-        echo "Anket cevabınız başarıyla gönderildi. Teşekkür ederiz!";
-    } else {
-        echo "Anket cevabınız gönderilemedi. Lütfen daha sonra tekrar deneyin.";
+    // Bağlantıyı kontrol edin
+    if ($conn->connect_error) {
+        die("Veritabanına bağlanılamadı: " . $conn->connect_error);
     }
+
+    // Veriyi veritabanına ekle
+    $sql = "INSERT INTO anket_sonuclari (ad_soyad, email, tarih, ogun, corba, ana_yemek, salata, tatli_meyve)
+    VALUES ('$adSoyad', '$email', '$tarih', '$ogun', '$corbaDegerlendirme', '$anaYemekDegerlendirme', '$salataDegerlendirme', '$tatliMeyveDegerlendirme')";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "Anket sonucu başarıyla kaydedildi.";
+    } else {
+        echo "Hata: " . $sql . "<br>" . $conn->error;
+    }
+
+    // Veritabanı bağlantısını kapat
+    $conn->close();
 }
 ?>
