@@ -10,33 +10,27 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $salataDegerlendirme = $_POST["salata"];
     $tatliMeyveDegerlendirme = $_POST["tatli_meyve"];
 
-    // Verileri bir veritabanına veya başka bir depolama yöntemine kaydetmek için bu noktada kod ekleyebilirsiniz.
-    // Örneğin, MySQL veritabanına veri eklemek için aşağıdaki gibi bir kod kullanabilirsiniz:
+    // Verileri bir metin dosyasına yaz
+    $dosya = fopen("anket_sonuclari.txt", "a"); // "a" dosyayı açmak ve verileri eklemek için kullanılır
 
-    // Veritabanı bağlantısını oluşturun
-    $servername = "localhost";
-    $username = "kullanici_adi";
-    $password = "parola";
-    $dbname = "veritabani_adi";
+    if ($dosya) {
+        // Verileri dosyaya yaz
+        fwrite($dosya, "Ad Soyad: $adSoyad\n");
+        fwrite($dosya, "E-posta: $email\n");
+        fwrite($dosya, "Tarih: $tarih\n");
+        fwrite($dosya, "Öğün: $ogun\n");
+        fwrite($dosya, "Çorba Değerlendirme: $corbaDegerlendirme\n");
+        fwrite($dosya, "Ana Yemek Değerlendirme: $anaYemekDegerlendirme\n");
+        fwrite($dosya, "Salata/Yoğurt/Ayran Değerlendirme: $salataDegerlendirme\n");
+        fwrite($dosya, "Tatlı/Meyve Değerlendirme: $tatliMeyveDegerlendirme\n");
+        fwrite($dosya, "--------------------------------------\n");
 
-    $conn = new mysqli($servername, $username, $password, $dbname);
+        // Dosyayı kapat
+        fclose($dosya);
 
-    // Bağlantıyı kontrol edin
-    if ($conn->connect_error) {
-        die("Veritabanına bağlanılamadı: " . $conn->connect_error);
-    }
-
-    // Veriyi veritabanına ekle
-    $sql = "INSERT INTO anket_sonuclari (ad_soyad, email, tarih, ogun, corba, ana_yemek, salata, tatli_meyve)
-    VALUES ('$adSoyad', '$email', '$tarih', '$ogun', '$corbaDegerlendirme', '$anaYemekDegerlendirme', '$salataDegerlendirme', '$tatliMeyveDegerlendirme')";
-
-    if ($conn->query($sql) === TRUE) {
         echo "Anket sonucu başarıyla kaydedildi.";
     } else {
-        echo "Hata: " . $sql . "<br>" . $conn->error;
+        echo "Dosya açılamadı.";
     }
-
-    // Veritabanı bağlantısını kapat
-    $conn->close();
 }
 ?>
