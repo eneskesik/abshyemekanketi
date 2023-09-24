@@ -117,42 +117,7 @@ ANKARA BİLKENT ŞEHİR HASTANESİ YEMEK DEĞERLENDİRME ANKETİ
         </p>
     </form>
 
-    <script>
-        document.getElementById("anket_formu").addEventListener("submit", function(event) {
-            // Formun gönderilmesini engelle
-            event.preventDefault();
-
-            // Burada JavaScript kodunu ekleyerek formun verilerini doğrulayabilir ve sunucuya göndermeden önce işleyebilirsiniz.
-
-            // Örnek olarak, tüm radio düğmelerini kontrol edebilir ve herhangi biri seçilmemişse uyarı verebilirsiniz.
-            var corbaDegerlendirme = document.getElementsByName("corba");
-            var anaYemekDegerlendirme = document.getElementsByName("ana_yemek");
-            var salataDegerlendirme = document.getElementsByName("salata");
-            var tatliMeyveDegerlendirme = document.getElementsByName("tatli_meyve");
-
-            if (!isAnyRadioButtonChecked(corbaDegerlendirme) ||
-                !isAnyRadioButtonChecked(anaYemekDegerlendirme) ||
-                !isAnyRadioButtonChecked(salataDegerlendirme) ||
-                !isAnyRadioButtonChecked(tatliMeyveDegerlendirme)) {
-                alert("Lütfen tüm soruları cevaplayın.");
-                return;
-            }
-
-            // Formu sunucuya göndermek için bu noktada AJAX veya başka bir yöntem kullanabilirsiniz.
-            // AJAX kullanımı için gerekli kodu buraya ekleyebilirsiniz.
-        });
-
-        // Radio düğmelerinden herhangi birinin seçilip seçilmediğini kontrol eden yardımcı bir fonksiyon
-        function isAnyRadioButtonChecked(radioButtons) {
-            for (var i = 0; i < radioButtons.length; i++) {
-                if (radioButtons[i].checked) {
-                    return true;
-                }
-            }
-            return false;
-        }
-    </script>
-    
+       
 </body>
 </html>
 
